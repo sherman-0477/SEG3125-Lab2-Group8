@@ -7,18 +7,21 @@ var products = [
 		name: "brocoli",
 		vegetarian: true,
 		glutenFree: true,
+		organic: true,
 		price: 1.99
 	},
 	{
 		name: "bread",
 		vegetarian: true,
 		glutenFree: false,
+		organic: false,
 		price: 2.35
 	},
 	{
 		name: "salmon",
 		vegetarian: false,
 		glutenFree: true,
+		organic: false,
 		price: 10.00
 	}
 ];
@@ -28,21 +31,23 @@ var products = [
 // given restrictions provided, make a reduced list of products
 // prices should be included in this list, as well as a sort based on price
 
-function restrictListProducts(prods, restriction) {
-	let product_names = [];
-	for (let i=0; i<prods.length; i+=1) {
-		if ((restriction == "Vegetarian") && (prods[i].vegetarian == true)){
-			product_names.push(prods[i].name);
-		}
-		else if ((restriction == "GlutenFree") && (prods[i].glutenFree == true)){
-			product_names.push(prods[i].name);
-		}
-		else if (restriction == "None"){
-			product_names.push(prods[i].name);
-		}
+function restrictListProducts(prods, restrictions, organicPref) {
+	let filtered = [];
+
+	for (let i = 0; i < prods.length; i++) {
+		let ok = true;
+
+		if (restrictions.includes("Vegetarian") && !prods[i].vegetarian) ok = false;
+		if (restrictions.includes("GlutenFree") && !prods[i].glutenFree) ok = false;
+
+		if (organicPref === "Organic" && !prods[i].organic) ok = false;
+		if (organicPref === "Non-Organic" && prods[i].organic) ok = false;
+
+		if (ok) filtered.push(prods[i]);
 	}
-	return product_names;
+	return filtered;
 }
+
 
 // Calculate the total price of items, with received parameter being a list of products
 function getTotalPrice(chosenProducts) {
