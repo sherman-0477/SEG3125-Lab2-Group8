@@ -8,14 +8,18 @@
 }
 
 /* Style the buttons that are used to open the tab content */
+/* Used this website to learn how to underline https://www.w3schools.com/cssref/pr_text_text-decoration.php */
 .tab button {
   background-color: inherit;
   float: left;
   border: none;
   outline: none;
   cursor: pointer;
+  font-size: 20px;
+  font-style: italic;
   padding: 14px 16px;
   transition: 0.3s;
+  color:white;
 }
 
 /* Change background color of buttons on hover */
@@ -26,6 +30,9 @@
 /* Create an active/current tablink class */
 .tab button.active {
   background-color: #ccc;
+  /* making it more unique with text colour changing and underlining */
+  color: red;
+  text-decoration: underline;
 }
 
 /* Style the tab content */
@@ -34,4 +41,25 @@
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
+  color: white;
+  font-size: 20px;
+}
+
+/* Putting the superStore logo on the right corner of the web pages */
+/* used https://www.youtube.com/watch?v=cYWKiB7Ll-g to get better understanding */
+#superStore {
+  margin-left: 1300px;
+  margin-top: -70px;
+  width: 170px;
+  height: 100px;
+}
+
+/* making the background of the webpage red */
+body {
+  background-color: #E04234;
+}
+
+/* making the tabs background red */
+.tab {
+  background-color: #E04234;
 }

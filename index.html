@@ -9,22 +9,35 @@
 
 <!-- Tab links, each one with an onclick event associated with it -->
 <div class="tab">
-  <button class="tablinks" onclick="openInfo(event, 'Client')">Client</button>
+  <button class="tablinks" onclick="openInfo(event, 'Client')">Customer</button>
   <button class="tablinks" onclick="openInfo(event, 'Products')">Products</button>
   <button class="tablinks" onclick="openInfo(event, 'Cart')">Cart</button>
+
+  <!-- Adding in the image of the superstore logo to make wesbite look more polished-->
+  <img src="images/superstore-logo.png" alt="Superstore logo"  id="superStore">
 </div>
 
 <!-- Tab content -->
 <div id="Client" class="tabcontent">
-  <h3>Client Information</h3>
-  <p>Tell us a bit about you.</p>
-	Choose a Category:
-	<select id="dietSelect" name="dietSelect" onchange="populateListProductChoices(this.id, 'displayProduct')">
-	<option value=""></option>
-	<option value="Vegetarian">Vegetarian</option>
-    <option value="GlutenFree">GlutenFree</option>
-    <option value="None">None</option>
-	</select>
+  <h3>Customer Information</h3>
+  <p>Tell us a bit about yourself.</p><br>
+	<!-- used this website to help learn with making labels https://www.w3schools.com/tags/tag_label.asp -->
+  <!-- used this to learn how to use br statements https://www.youtube.com/watch?v=Romw2Oes8mg-->
+   <label> Diet Restriction:</label><br><br>
+
+   <input type="checkbox" id="vegetarian" name="diet" value="Vegetarian">
+   <label for="vegetarian">Vegetarian</label><br><br>
+
+   <input type="checkbox" id="gluten" name="diet" value="Gluten Free">
+   <label for="gluten">Gluten Free</label><br><br><br>
+
+   <label for="organicOption"> Do you Prefer Organic or Non-Organic:</label><br><br>
+
+   <input type="radio" id="organic" name="organicOption" onchange="populateListProductChoices(this.id, 'displayProduct')">
+   <label for="organic">Organic</label><br><br>
+
+   <input type="radio" id="nonOrganic" name="organicOption" onchange="populateListProductChoices(this.id, 'displayProduct')">
+   <label for="nonOrganic">Non-Organic</label><br>
 </div>
 
 <div id="Products" class="tabcontent">
