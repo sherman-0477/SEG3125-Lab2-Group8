@@ -63,3 +63,8 @@ body {
 .tab {
   background-color: #E04234;
 }
+
+/* trying custom font */
+body {
+  font-family: 'Montserrat', sans-serif;
+}
