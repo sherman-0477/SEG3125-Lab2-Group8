@@ -50,7 +50,7 @@
 /* used https://www.youtube.com/watch?v=cYWKiB7Ll-g to get better understanding */
 #superStore {
   position: absolute;
-  top: 12px;
+  top: 8px;
   right: 20px;
   width: auto;
   height: calc(clamp(56px, 6vw, 92px) * 2.00);
@@ -123,4 +123,74 @@ body {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
+}
+
+/* Bread crumb section */
+.breadcrumb-container {
+  list-style: none;
+  padding: 8px 16px;
+  margin: 0;
+  color: white;
+  font-size: 16px;
+}
+
+.breadcrumb-container li {
+  display: inline;
+}
+
+.breadcrumb-container li+li:before {
+  content: " > ";
+}
+
+.breadcrumb-container a {
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.breadcrumb-container a:hover {
+  color:#ffd1cc;
+}
+
+/* Search Bar Section */
+/* Inspired byhttps://www.youtube.com/watch?v=9hnJsNIBq1g */
+.search-bar {
+  position: absolute;
+  top: 185px;
+  right: 10px;
+  width: 360px;
+  background:#E04234;
+  display: flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 2px solid white;
+  padding: 4px;
+}
+
+.search-bar input {
+  background: transparent;
+  flex: 1;
+  border: 0;
+  outline: none;
+  padding: 10px 16px;
+  font-size: 16px;
+  color:white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.search-bar input::placeholder{
+  color:white;
+}
+
+.search-bar button img{
+  width: 20px;
+}
+.search-bar button{
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

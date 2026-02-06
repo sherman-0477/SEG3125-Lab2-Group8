@@ -60,6 +60,11 @@ function populateListProductChoices(slct2) {
 
 	let options = restrictListProducts(products, restrictions, organicPref, categories);
 
+	// This if statemetn is for input protection to prevent crashing
+	if (searchInput !== "") {
+		options = options.filter(p => p.name.toLowerCase().includes(searchInput));
+	}
+
 	for (let i = 0; i < options.length; i++) {
 		let checkbox = document.createElement("input");
 		checkbox.type = "checkbox";
@@ -109,5 +114,13 @@ function selectedItems(){
 	let total = getTotalPrice(chosenProducts);
 	c.appendChild(document.createTextNode("Total Price is [CAD]: $" + getTotalPrice(chosenProducts)));
 		
+}
+
+// This is the function to help with the search bar displaying the products of the filters
+let searchInput = "";
+function updateSearch(text) {
+	// keeping in my mind of lower case and making it the search more friendly to use
+	searchInput = text.toLowerCase();
+	populateListProductChoices('displayProduct');
 }
 
