@@ -3,18 +3,17 @@
 // A set of ingredients should be added to products		 
 
 var products = [
-  { name: "Broccoli",        vegetarian: true,  glutenFree: true,  organic: true,  price: 4.99 },
-  { name: "Apples (bag)",    vegetarian: true,  glutenFree: true,  organic: true,  price: 6.99 },
-  { name: "Rice",            vegetarian: true,  glutenFree: true,  organic: true,  price: 9.79 },
-  { name: "Eggs (12)",       vegetarian: true,  glutenFree: true,  organic: true,  price: 4.19 },
-  { name: "Chicken Breast",  vegetarian: false, glutenFree: true,  organic: true,  price: 11.99 },
-
-  { name: "Bread",           vegetarian: true,  glutenFree: false, organic: false, price: 2.35 },
-  { name: "Pasta (wheat)",   vegetarian: true,  glutenFree: false, organic: false, price: 1.59 },
-  { name: "Oats",            vegetarian: true,  glutenFree: false, organic: false, price: 3.99 },
-  { name: "Greek Yogurt",    vegetarian: true,  glutenFree: true,  organic: false, price: 6.49 },
-  { name: "Cheddar Cheese",  vegetarian: true,  glutenFree: true,  organic: false, price: 4.49 },
-  { name: "Salmon Fillet",   vegetarian: false, glutenFree: true,  organic: false, price: 15.00 }
+  { name: "Broccoli",        vegetarian: true,  glutenFree: true,  organic: true,  category: "Vegetable", price: 4.99 },
+  { name: "Apples (bag)",    vegetarian: true,  glutenFree: true,  organic: true,  category: "Fruits", price: 6.99 },
+  { name: "Rice",            vegetarian: true,  glutenFree: true,  organic: true,  category: "Vegetable", price: 9.79 },
+  { name: "Eggs (12)",       vegetarian: true,  glutenFree: true,  organic: true,  category: "Dairy", price: 4.19 },
+  { name: "Chicken Breast",  vegetarian: false, glutenFree: true,  organic: true,  category: "Meat", price: 11.99 },
+  { name: "Bread",           vegetarian: true,  glutenFree: false, organic: false, category: "Vegetable", price: 2.35 },
+  { name: "Pasta (wheat)",   vegetarian: true,  glutenFree: false, organic: false, category: "Vegetable", price: 1.59 },
+  { name: "Oats",            vegetarian: true,  glutenFree: false, organic: false, category: "Vegetable", price: 3.99 },
+  { name: "Greek Yogurt",    vegetarian: true,  glutenFree: true,  organic: false, category: "Dairy", price: 6.49 },
+  { name: "Cheddar Cheese",  vegetarian: true,  glutenFree: true,  organic: false, category: "Dairy", price: 4.49 },
+  { name: "Salmon Fillet",   vegetarian: false, glutenFree: true,  organic: false, category: "Meat", price: 15.00 }
 ];
 	
 
@@ -22,7 +21,7 @@ var products = [
 // given restrictions provided, make a reduced list of products
 // prices should be included in this list, as well as a sort based on price
 
-function restrictListProducts(prods, restrictions, organicPref) {
+function restrictListProducts(prods, restrictions, organicPref, categories) {
 	let filtered = [];
 
 	for (let i = 0; i < prods.length; i++) {
@@ -33,6 +32,9 @@ function restrictListProducts(prods, restrictions, organicPref) {
 
 		if (organicPref === "Organic" && !prods[i].organic) ok = false;
 		if (organicPref === "Non-Organic" && prods[i].organic) ok = false;
+
+
+		if (categories.length > 0 && !categories.includes(prods[i].category)) ok = false;
 
 		if (ok) filtered.push(prods[i]);
 	}

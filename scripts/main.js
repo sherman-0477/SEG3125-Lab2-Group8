@@ -49,7 +49,16 @@ function populateListProductChoices(slct2) {
 		}
 	}
 
-	let options = restrictListProducts(products, restrictions, organicPref);
+	// filters based on categories
+	let categories = [];
+	let categoryCheckboxes = document.getElementsByName("category");
+	for (let i = 0; i < categoryCheckboxes.length; i++) {
+		if (categoryCheckboxes[i].checked) {
+			categories.push(categoryCheckboxes[i].value);
+		}
+	}
+
+	let options = restrictListProducts(products, restrictions, organicPref, categories);
 
 	for (let i = 0; i < options.length; i++) {
 		let checkbox = document.createElement("input");
